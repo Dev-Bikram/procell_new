@@ -79,7 +79,7 @@ const Signup = () => {
     return (
         <SignUpNewWrapper>
             <Box className="sign-up-left">
-                <img src={assest.AppleIcon} alt="logo" />
+                <img src={assest.logo_img} alt="logo" />
             </Box>
 
             <Box
