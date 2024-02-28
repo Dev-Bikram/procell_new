@@ -1,7 +1,7 @@
 
 import { signUpProfileMutation } from "@/api/functions/user.api";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { Alert, Spin } from "antd";
 
 
@@ -32,6 +32,7 @@ const schema = yup.object().shape({
    
     
    password: yup.string().trim().required(validationText.error.enter_password)
+    .matches(passwordRegex, validationText.error.password_format),
 
 });
 
@@ -41,7 +42,7 @@ const Signup = () => {
     const {
         handleSubmit,
         register,
-        watch,
+     
         reset,
         formState: { errors }
     } = useForm({
@@ -58,7 +59,7 @@ const Signup = () => {
     const router = useRouter();
 
     const onSubmit : SubmitHandler<{ fullName: string; email: string; password: string;} > = (data) => {
-        let payload = {
+        const payload = {
            
             fullName: data?.fullName,
          
@@ -68,7 +69,7 @@ const Signup = () => {
         };
 
         mutate(payload, {
-            onSuccess: (data) => {
+            onSuccess: () => {
                 reset();
                 toast.success("Account created successfully! 🎉✨");
                 router.push("/login");

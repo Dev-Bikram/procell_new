@@ -33,11 +33,13 @@ interface commnlogSignprops{
 }
 export default function CommonFormLeft(props: commnlogSignprops) {
   return (
+    <>
     <Commonleftloginwrap>
         <Box className="wraper-leftloginmain">
             <Typography variant='h1'>{props.tittle}</Typography>
             <Typography variant='body1'>{props.subtittle}</Typography>
         </Box>
     </Commonleftloginwrap>
+    </>
   )
 }

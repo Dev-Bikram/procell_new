@@ -4,6 +4,7 @@ export default {
     enter_email: "Enter email",
     email_format: "Email format is not correct",
     enter_password: "Enter password",
+    password_format: "Password is not in format",
     phone: "Enter phone",
     username: "Enter username",
     fullName: "Enter Full Name",

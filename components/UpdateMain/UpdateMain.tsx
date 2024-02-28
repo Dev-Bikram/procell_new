@@ -1,13 +1,13 @@
-import { Checkbox, FormControl, FormControlLabel, Grid, Link, Typography } from '@mui/material'
+import { FormControl, Grid, Link, Typography } from '@mui/material'
 import { Box, Container, styled } from '@mui/system'
-import React, { useState } from 'react'
+
 import CustomButton from '@/ui/Button/CustomButton'
 import assest from '@/json/assest'
 import Image from 'next/image'
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useMutation, useQuery } from 'react-query'
+import { useMutation } from 'react-query'
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
+
 import { useRouter } from 'next/router'
 import CircularProgress from '@mui/material/CircularProgress';
 import { ProfileUpdateMutation } from '@/api/functions/user.api'
@@ -205,13 +205,13 @@ const ConatcUsWrap = styled(Box)`
 
 
 export default function UpdateMain() {
-const[formdata,setFormdata]= useState(null);
+// const[formdata,setFormdata]= useState(null);
 const { register, handleSubmit } = useForm<IFormInput>()
 const router = useRouter();
 
 const { userData} = useAppSelector((state) => state.userSlice);
 
-const { mutate, isLoading, status, data, error } = useMutation(
+const { mutate, isLoading } = useMutation(
     "update",
     ProfileUpdateMutation
   );

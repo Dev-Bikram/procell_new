@@ -235,7 +235,7 @@ const router = useRouter();
     }
   )
    
-  const { mutate, isLoading, status, data, error } = useMutation(
+  const { mutate, isLoading, status, error } = useMutation(
     {
         mutationKey: ["login"],
         mutationFn: loginMutation
