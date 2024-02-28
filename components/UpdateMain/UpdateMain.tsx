@@ -1,3 +1,6 @@
+
+
+
 import { FormControl, Grid, Link, Typography } from '@mui/material'
 import { Box, Container, styled } from '@mui/system'
 
@@ -207,14 +210,16 @@ const ConatcUsWrap = styled(Box)`
 export default function UpdateMain() {
 // const[formdata,setFormdata]= useState(null);
 const { register, handleSubmit } = useForm<IFormInput>()
-const router = useRouter();
-
-const { userData} = useAppSelector((state) => state.userSlice);
 
 const { mutate, isLoading } = useMutation(
     "update",
     ProfileUpdateMutation
   );
+  
+const router = useRouter();
+
+const { userData} = useAppSelector((state) => state.userSlice);
+
 const onSubmit: SubmitHandler<IFormInput> = (data) =>{ 
     mutate(
         data, {
@@ -227,7 +232,7 @@ const onSubmit: SubmitHandler<IFormInput> = (data) =>{
 
     )
     
-    console.log(data)
+   
 }
 
 if (isLoading) {

@@ -1,6 +1,9 @@
-import { Typography } from '@mui/material'
-import { Box, styled } from '@mui/system'
+
 import React from 'react'
+import { Typography } from '@mui/material'
+
+import { Box, styled } from '@mui/system'
+
 const Commonleftloginwrap = styled(Box)`
 .wraper-leftloginmain{
     position: relative;
@@ -33,13 +36,13 @@ interface commnlogSignprops{
 }
 export default function CommonFormLeft(props: commnlogSignprops) {
   return (
-    <>
+    
     <Commonleftloginwrap>
         <Box className="wraper-leftloginmain">
             <Typography variant='h1'>{props.tittle}</Typography>
             <Typography variant='body1'>{props.subtittle}</Typography>
         </Box>
     </Commonleftloginwrap>
-    </>
+   
   )
 }

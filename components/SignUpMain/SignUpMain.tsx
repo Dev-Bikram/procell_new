@@ -19,6 +19,7 @@ import CustomButtonPrimary from "ui/CustomButtons/CustomButtonPrimary";
 import * as yup from "yup";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 
 
 const schema = yup.object().shape({
@@ -80,7 +81,7 @@ const Signup = () => {
     return (
         <SignUpNewWrapper>
             <Box className="sign-up-left">
-                <img src={assest.logo_img} alt="logo" />
+                <Image src={assest.logo_img} alt="logo" />
             </Box>
 
             <Box
@@ -92,7 +93,7 @@ const Signup = () => {
                 <Spin spinning={isLoading} size="large">
                     <Box className="loginHeader">
                         <Link href="/">
-                            <img src={assest.logo} alt="logo" />
+                            <Image src={assest.logo} alt="logo" />
                         </Link>
                     </Box>
                     <Box className="loginHeader">
@@ -127,7 +128,7 @@ const Signup = () => {
                         {data?.data.status === "success" && (
                             <Grid item xs={12}>
                                 <Box mb={2}>
-                                    {" "}
+                                    
                                     <Alert
                                         showIcon
                                         // @ts-ignore

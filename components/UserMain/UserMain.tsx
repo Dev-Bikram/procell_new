@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import { useAppSelector } from '@/hooks/redux/useAppSelector';
@@ -11,22 +11,22 @@ import { useRouter } from 'next/router';
 
 const bull = ()=>{
     return(
-    <>
+
     <Box
       component="span"
       sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-    </Box>
-    </>
+    />
+   
+    
    )}
   
-
-
+ 
   const card = ()=> {
     
-    const router = useRouter();
+   const router = useRouter();
+ const { userData} = useAppSelector((state) => state.userSlice);
 
-    const { userData} = useAppSelector((state) => state.userSlice);
+   
   const handelUpdate = ()=>{
          router.push("/update")
   }
@@ -49,7 +49,7 @@ const bull = ()=>{
         <Typography variant="body2">
           Good to stay with us....
           <br />
-          {'"a benevolent smile"'}
+          {"a benevolent smile"}
         </Typography>
       </CardContent>
       <CardActions>
@@ -61,11 +61,11 @@ const bull = ()=>{
 
 const UserMain = () => {
        return (
-    <>
+   
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" style={{ textAlign: "center" }}>{card()}</Card>
     </Box>
-   </>
+   
   )
 }
 export default UserMain

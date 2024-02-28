@@ -1,3 +1,6 @@
+
+
+
 import { Checkbox, CircularProgress, FormControlLabel, Grid, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system'
 import { useEffect, useState } from 'react'
@@ -9,7 +12,7 @@ import MuiModalWrapper from '@/ui/Modal/MuiModalWrapper'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as yup from "yup"
-import CommonFormLeft from '../CommonFormLeft/CommonFormLeft'
+
 
 import { loginMutation } from '@/api/functions/user.api'
 import { useAppDispatch } from '@/hooks/redux/useAppDispatch'
@@ -24,7 +27,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import { toast } from 'sonner'
 import styled from '@emotion/styled'
-
+import CommonFormLeft from '../CommonFormLeft/CommonFormLeft'
 
 
 const LoingMainWraper = styled(Box)`
@@ -343,7 +346,7 @@ const router = useRouter();
                 </Box>
             </Container>
         </Box>
-        <MuiModalWrapper open={open} title={''} onClose={onHandleClose} className="signinModal">
+        <MuiModalWrapper open={open} title={'title'} onClose={onHandleClose} className="signinModal">
             <Box className="modal-signinwrap">
                 <i><Image src={assest.modalsigninicon} alt='modalicon' width={50} height={48}/></i>
                 <Typography variant='body1'>A verification link has been sent to your email address. <br/>Please check to complete your forgot password. </Typography>

@@ -7,7 +7,7 @@ import MuiThemeProvider from "@/themes/MuiThemeProvider";
 import createEmotionCache from "@/themes/createEmotionCache";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
-import {QueryClient, QueryClientProvider , Hydrate} from "react-query";
+import { Hydrate,QueryClient, QueryClientProvider} from "react-query";
 import type { AppContext, AppProps } from "next/app";
 import App from "next/app";
 import React from "react";
