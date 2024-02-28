@@ -1,25 +1,4 @@
-// import React from 'react'
-
-// const LoginMain = () => {
-//   return (
-//     <>
-    
-    
-    
-    
-    
-//     Welcome to LoginMain Page
-    
-    
-    
-//     </>
-//   )
-// }
-
-// export default LoginMain
-
-
-import { Checkbox, FormControlLabel, Grid, Typography } from '@mui/material'
+import { Checkbox, CircularProgress, FormControlLabel, Grid, Typography } from '@mui/material'
 import { Box, Container, Stack } from '@mui/system'
 import { useEffect, useState } from 'react'
 
@@ -297,7 +276,13 @@ const router = useRouter();
   }
 
 
-
+  if (isLoading) {
+    return <CircularProgress disableShrink style={{  position: "fixed",
+        top: "10%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+       }}/>
+}
    
 
 
