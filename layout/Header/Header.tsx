@@ -35,6 +35,10 @@ const drawerWidth = 240;
 export default function Header() {
   const navItems = [
     {
+      name: "Home",
+      route: "/"
+    },
+    {
       name: "Clinical studies",
       route: "javascript:void(0)"
     },

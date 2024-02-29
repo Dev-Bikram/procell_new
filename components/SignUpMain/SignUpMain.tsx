@@ -81,7 +81,7 @@ const Signup = () => {
     return (
         <SignUpNewWrapper>
             <Box className="sign-up-left">
-                <Image src={assest.logo_img} alt="logo" />
+                <Image src={assest.logo_img} alt="logo" width={50} height={10}/>
             </Box>
 
             <Box
@@ -93,7 +93,7 @@ const Signup = () => {
                 <Spin spinning={isLoading} size="large">
                     <Box className="loginHeader">
                         <Link href="/">
-                            <Image src={assest.logo} alt="logo" />
+                            <Image src={assest.logo} alt="logo" width={50} height={50} />
                         </Link>
                     </Box>
                     <Box className="loginHeader">
