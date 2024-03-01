@@ -92,9 +92,10 @@ const UserMain = () => {
       Email : {userData?.email}
      </Typography>
      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-      Phone : {userData?.phone}
+      Phone : {userData?.phone} 
+      {userData?.phone?.length === 0 && <p>No phone number found...please add</p>}
      </Typography>
-     {userData?.phone === null && <p>No phone number found...please add</p>}
+    
      <Typography variant="body2">
        Good to stay with us....
        <br />
