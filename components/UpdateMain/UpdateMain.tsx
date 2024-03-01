@@ -1,8 +1,14 @@
 
 
 
-import { FormControl, Grid, Link, Typography } from '@mui/material'
-import { Box, Container, styled } from '@mui/system'
+import  FormControl from '@mui/material/FormControl'
+import  Grid from '@mui/material/Grid'
+import Link from '@mui/material/Link'
+import Typography from '@mui/material/Typography'
+import  Box from '@mui/system/Box'
+import  Container from '@mui/system/Container'
+import  styled from '@mui/system/styled'
+
 
 import CustomButton from '@/ui/Button/CustomButton'
 import assest from '@/json/assest'

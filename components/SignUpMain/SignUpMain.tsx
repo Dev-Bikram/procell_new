@@ -1,7 +1,9 @@
 
 import { signUpProfileMutation } from "@/api/functions/user.api";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Grid, Typography } from "@mui/material";
+import  Grid from '@mui/material/Grid'
+import  Typography  from '@mui/material/Typography'
+import  Box  from '@mui/system/Box'
 import { Alert, Spin } from "antd";
 
 
@@ -131,10 +133,10 @@ const Signup = () => {
                                     
                                     <Alert
                                         showIcon
-                                        // @ts-ignore
-                                        message={
+                                     
+                                        message=
                                             "Your pharmacy account registration is currently pending approval from our super admin. Once approved, you will gain access to the full range of features and services offered by our platform."
-                                        }
+                                        
                                         type="success"
                                     />
                                 </Box>
