@@ -220,23 +220,14 @@ const schema = yup.object().shape({
 
 const ForgotMain = () => {
 
-    const [open, setOpen]=useState(false)
-    const onHandleClose=()=>{
-        setOpen(false);
-    }
-    const onHandleOpen=()=>{
-        setOpen(true);
-    }
+  
 
    
 const router = useRouter();
 
 
 
-  const forgotHandel = ()=>{
-        router.push("/forgot")
-    }
-
+ 
   const { handleSubmit, register  } = useForm(
     {
       resolver: yupResolver(schema),
@@ -337,12 +328,7 @@ const router = useRouter();
                 </Box>
             </Container>
         </Box>
-        <MuiModalWrapper open={open} title='title' onClose={onHandleClose} className="signinModal">
-            <Box className="modal-signinwrap">
-               
-                <Typography variant='body1'>A verification link has been sent to your email address. <br/>Please check to complete your forgot password. </Typography>
-            </Box>
-        </MuiModalWrapper>
+       
     </LoingMainWraper>
     
     
