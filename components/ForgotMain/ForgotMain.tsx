@@ -1,40 +1,38 @@
-
-
-
-import Checkbox from '@mui/material/Checkbox'
-import  CircularProgress from '@mui/material/CircularProgress'
-import  FormControlLabel from '@mui/material/FormControlLabel'
-import  Grid from '@mui/material/Grid'
-import  Typography  from '@mui/material/Typography'
-import  Box  from '@mui/system/Box'
-import { useEffect, useState } from 'react'
-import  Container from '@mui/system/Container'
-import  Stack  from '@mui/system/Stack'
-
 import assest from '@/json/assest'
+import styled from '@emotion/styled'
+import { Box } from '@mui/system'
+
+import CircularProgress from '@mui/material/CircularProgress'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+
+import Container from '@mui/system/Container'
+import Stack from '@mui/system/Stack'
+import { useState } from 'react'
+
+
 import validationText from '@/json/messages/validationText'
 import CustomButton from '@/ui/Button/CustomButton'
-import MuiModalWrapper from '@/ui/Modal/MuiModalWrapper'
-import Image from 'next/image'
+
 import Link from 'next/link'
 import * as yup from "yup"
 
 
-import { loginMutation } from '@/api/functions/user.api'
-import { useAppDispatch } from '@/hooks/redux/useAppDispatch'
-import { useAppSelector } from '@/hooks/redux/useAppSelector'
-import { setCookieClient } from '@/lib/functions/storage.lib'
+import { forgotMutation } from '@/api/functions/user.api'
 import { emailRegex } from '@/lib/regex'
-import { setLoginData } from '@/reduxtoolkit/slices/userSlice'
 import InputFieldCommon from '@/ui/CommonInput/CommonInput'
-import styled from '@emotion/styled'
+
 import { yupResolver } from '@hookform/resolvers/yup'
-import { Button } from 'antd'
 import { useRouter } from 'next/router'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
-import { toast } from 'sonner'
 import CommonFormLeft from '../CommonFormLeft/CommonFormLeft'
+import MuiModalWrapper from '@/ui/Modal/MuiModalWrapper'
+
+
+
+
+
 
 
 const LoingMainWraper = styled(Box)`
@@ -206,7 +204,6 @@ const LoingMainWraper = styled(Box)`
     
 `
 
-
 const schema = yup.object().shape({
     email: yup
       .string()
@@ -214,15 +211,15 @@ const schema = yup.object().shape({
       .email(validationText.error.email_format)
       .required(validationText.error.enter_email)
       .matches(emailRegex , validationText.error.email_format),
-    password: yup.string().trim().required(validationText.error.enter_password),
+   
     deviceToken: yup.string().nullable()
      
   });
 
   export type LoginSchemaFormData = yup.InferType<typeof schema>;
 
+const ForgotMain = () => {
 
-export default function LoingMain() {
     const [open, setOpen]=useState(false)
     const onHandleClose=()=>{
         setOpen(false);
@@ -233,7 +230,7 @@ export default function LoingMain() {
 
    
 const router = useRouter();
- const dispatch = useAppDispatch();
+
 
 
   const forgotHandel = ()=>{
@@ -246,7 +243,6 @@ const router = useRouter();
       mode: "all",
       defaultValues: {
         email: "",
-        password: "",
         isApproved: true
       }
     }
@@ -254,13 +250,13 @@ const router = useRouter();
    
   const { mutate, isLoading, status, error } = useMutation(
     {
-        mutationKey: ["login"],
-        mutationFn: loginMutation
+        mutationKey: ["forgot"],
+        mutationFn: forgotMutation
     }
   );
-  const { isLoggedIn } = useAppSelector((s) => s.userSlice);
+ 
                    
-  const onSubmit: SubmitHandler<{ email: string; password: string;} > = (data) => {
+  const onSubmit: SubmitHandler<{ email: string} > = (data) => {
 
     mutate(
       data ,
@@ -269,27 +265,14 @@ const router = useRouter();
        
           if (res?.status === 200) {
            
-            if (res?.data) {
-              setCookieClient("procell_token", res?.data.token);
-              const { ...userData } = res.data.data
-               dispatch( setLoginData(userData));
-              router.push("/");
-            }
+            alert("sucessfully submitted....A verification link has been sent to your email address.")
+           
+
+            router.push("/login")
           }
         }
       }
     )
-  }
-
-  useEffect(() => {
-    if (isLoggedIn) {
-     router.push("/");
-    }
-  }, [isLoggedIn]);
-
-  if (status === "error") {
-    // @ts-ignore
-    toast.error(error?.response?.data?.message?.message || error?.response?.data?.message)
   }
 
 
@@ -303,12 +286,13 @@ const router = useRouter();
    
 
 
-    
-    
 
   return (
+    <>
+    
+    
     <LoingMainWraper>
-        <Box className="loginMain-wrapper">
+    <Box className="loginMain-wrapper">
             <Container fixed>
                 <Box className="loginwrapmain">
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
@@ -328,22 +312,15 @@ const router = useRouter();
                              onSubmit={handleSubmit(onSubmit)}   
                           >
                             <Box className="wrapInner-loginform">
-                                <Typography variant='h2'>Log In</Typography>
+                                <Typography variant='h3'>Enter your email</Typography>
                                 <Box className="single-inputWrap">
                                     <InputFieldCommon placeholder='Email' type='email'   {...register("email", { required: true })}/>
                                 </Box>
-                                <Box className="single-inputWrap">
-                                    <InputFieldCommon  placeholder='Password'  type='Password'   {...register("password", { required: true })} />
-                                </Box>
-                                <Box className="checkbox-common">
-                                    <FormControlLabel control={<Checkbox/>} label="Remember Me?" />
-                                    <Box className="forgetpassWrd-wrp">
-                                        <Button href="javascript:void(0)" onClick={forgotHandel}>Forgot Password</Button>
-                                    </Box> 
-                                </Box>
+                                
+                                
                                 <Box className="submtbtn-wraplogin">
                                     <CustomButton type="submit" variant='contained' color='primary'>
-                                        <Typography variant="caption">Login</Typography>
+                                        <Typography variant="caption">submit</Typography>
                                     </CustomButton>
                                 </Box>
                                 <Box className="orlogin-txtwrap">
@@ -362,10 +339,15 @@ const router = useRouter();
         </Box>
         <MuiModalWrapper open={open} title='title' onClose={onHandleClose} className="signinModal">
             <Box className="modal-signinwrap">
-                <i><Image src={assest.modalsigninicon} alt='modalicon' width={50} height={48}/></i>
+               
                 <Typography variant='body1'>A verification link has been sent to your email address. <br/>Please check to complete your forgot password. </Typography>
             </Box>
         </MuiModalWrapper>
     </LoingMainWraper>
+    
+    
+    </>
   )
 }
+
+export default ForgotMain

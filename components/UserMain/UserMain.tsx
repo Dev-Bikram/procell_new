@@ -105,12 +105,9 @@ const UserMain = () => {
    <CardActions>
      <Button size="small"  onClick={handelUpdate}>Update Profile</Button>
    </CardActions>
-
-
-
-      </Card>
+    </Card>
     </Box>
-   
+  
   )
 }
 export default UserMain

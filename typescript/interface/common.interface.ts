@@ -388,8 +388,8 @@ export interface CommonMuiInputProps {
 }
 
 export interface IFormInput {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
   fullName?: string;
   username?: string;
   phone?: Number;

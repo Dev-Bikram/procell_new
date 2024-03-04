@@ -13,6 +13,7 @@ export const endpoints = {
     signup: "user/existence",
     signUpProfile: "user/signup",
     login:"user/signin",
+    forgot: "user/forgot-password",
     profileDetails: "user/profile/get",
     profileUpdate: "user/profile/update"
   },
@@ -27,4 +28,5 @@ export const sucessNotificationEndPoints = [
   endpoints.auth.signUpProfile,
   endpoints.auth.login,
   endpoints.auth.profileUpdate,
+  endpoints.auth.forgot,
 ];
