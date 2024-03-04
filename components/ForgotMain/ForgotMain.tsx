@@ -27,7 +27,7 @@ import { useRouter } from 'next/router'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useMutation } from 'react-query'
 import CommonFormLeft from '../CommonFormLeft/CommonFormLeft'
-import MuiModalWrapper from '@/ui/Modal/MuiModalWrapper'
+
 
 
 
@@ -239,7 +239,7 @@ const router = useRouter();
     }
   )
    
-  const { mutate, isLoading, status, error } = useMutation(
+  const { mutate, isLoading} = useMutation(
     {
         mutationKey: ["forgot"],
         mutationFn: forgotMutation
